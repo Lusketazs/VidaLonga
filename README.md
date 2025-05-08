@@ -1,1 +1,86 @@
 # VidaLonga
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vida Longa e Saudável - Guia de Bem-Estar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      color: #2e7052;
+    }
+    .botao {
+      display: inline-block;
+      padding: 15px 25px;
+      margin-top: 20px;
+      background-color: #2e7052;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .destaque {
+      background-color: #e2f0e9;
+      padding: 10px 15px;
+      border-left: 4px solid #2e7052;
+      margin: 15px 0;
+    }
+    .depoimento {
+      font-style: italic;
+      background-color: #f4f4f4;
+      border-left: 4px solid #ccc;
+      padding: 10px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vida Longa e Saudável</h1>
+  <h2>Um guia prático para mais energia, equilíbrio e qualidade de vida em qualquer idade</h2>
+
+  <p><strong>Você sente que precisa cuidar melhor da sua saúde, mas não sabe por onde começar?</strong></p>
+  <p>Este e-book foi feito especialmente para quem quer viver com mais leveza, disposição e bem-estar — sem mudanças radicais.</p>
+
+  <div class="destaque">
+    <strong>O que você vai encontrar:</strong>
+    <ul>
+      <li>Técnicas para reduzir o estresse e a ansiedade</li>
+      <li>Dicas de alimentação saudável e equilibrada</li>
+      <li>Exercícios leves que realmente funcionam</li>
+      <li>Estratégias para prevenir doenças crônicas</li>
+      <li>Como manter a motivação e o autocuidado</li>
+      <li>Plano de 21 dias com orientações simples e eficazes</li>
+    </ul>
+  </div>
+
+  <div class="depoimento">
+    “Comecei a seguir o plano de 21 dias e já me sinto mais leve, animada e com mais foco. É prático, direto e fácil de seguir.”<br>
+    <strong>-- Dona Maria, 62 anos</strong>
+  </div>
+
+  <h3>🎁 Bônus:</h3>
+  <ul>
+    <li>Edição especial com visual amigável</li>
+    <li>Acesso vitalício ao conteúdo</li>
+    <li>Suporte por e-mail em caso de dúvidas</li>
+  </ul>
+
+  <h2>Por apenas R$ 29,90</h2>
+  <p><strong>Aproveite o valor promocional por tempo limitado.</strong></p>
+  <a class="botao" href="https://go.hotmart.com/S99622063H" target="_blank">CLIQUE AQUI PARA COMPRAR AGORA</a>
+
+  <p><em>Pagamento 100% seguro. Acesso imediato após a compra.</em></p>
+
+  <h3>Garantia de 7 dias</h3>
+  <p>Se não gostar, você pode pedir reembolso completo. Sem perguntas.</p>
+</body>
+</html>
