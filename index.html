@@ -1,85 +1,142 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vida Longa e Saudável - Guia de Bem-Estar</title>
+  <link rel="preconnect" href="https://pay.hotmart.com" crossorigin>
+
+  <link rel="preload" as="image" href="assets/img/hero.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vida Longa e Saudável – Página de Vendas</title>
+  <meta name="description" content="Guia prático com dicas simples para ter mais energia, disposição e bem‑estar no dia a dia."/>
+  <link rel="icon" href="assets/icon/favicon.svg" type="image/svg+xml">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fdfaf6;
-      color: #333;
-      line-height: 1.6;
-      padding: 20px;
-      max-width: 700px;
-      margin: auto;
+    /* Fundo com imagem e overlay para legibilidade */
+    body::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#f7971e 0%, #ffd200 100%);z-index:-2;}
+    body::after{content:"";position:fixed;inset:0;background:linear-gradient(180deg, rgba(250,249,246,.85), rgba(250,249,246,.95));z-index:-1;}
+
+    :root{--bg:#FAF9F6;--text:#1F2937;--muted:#4B5563;--brand:#2E6F4E;--accent:#F2994A;--accent-700:#d17f39;}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:18px;}
+    .container{max-width:640px;margin:auto;padding:20px;}
+    header{background:#fff;position:sticky;top:0;border-bottom:1px solid #ddd;}
+    .brand{font-weight:800;color:var(--brand);font-size:22px;padding:12px;}
+    .cta{display:block;background:var(--accent);color:#fff;text-align:center;text-decoration:none;
+         font-weight:700;font-size:20px;padding:16px;border-radius:12px;margin:18px 0;}
+    .cta:hover{background:var(--accent-700);} h1{font-size:28px;margin:12px 0;} h2{font-size:24px;margin:20px 0 10px;}
+    .price{font-size:32px;font-weight:900;color:var(--brand);margin:8px 0;}
+    .old{text-decoration:line-through;color:#888;}
+    .benefit{background:#fff;border:1px solid #ddd;border-radius:12px;padding:12px;margin-bottom:12px;}
+    .testi{background:#fff;border:1px solid #ddd;border-radius:12px;padding:12px;margin-bottom:12px;}
+    footer{font-size:14px;color:#666;padding:20px;text-align:center;border-top:1px solid #ddd;}
+  
+    /* Cartões com efeito glass/futurista */
+    .benefit, .testi {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      transform: translateZ(0);
+      will-change: transform, box-shadow;
+      animation: floatY 6s ease-in-out infinite;
     }
-    h1, h2, h3 {
-      color: #2e7052;
+    .benefit:nth-child(2n), .testi:nth-child(2n){ animation-duration: 7.5s; animation-delay: .6s; }
+    .benefit:nth-child(3n), .testi:nth-child(3n){ animation-duration: 5.5s; animation-delay: .3s; }
+    @keyframes floatY{
+      0%{ transform: translateY(0) scale(1); }
+      50%{ transform: translateY(-6px) scale(1.01); box-shadow: 0 16px 36px rgba(0,0,0,.12); }
+      100%{ transform: translateY(0) scale(1); }
     }
-    .botao {
-      display: inline-block;
-      padding: 15px 25px;
-      margin-top: 20px;
-      background-color: #2e7052;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+    /* Efeito de entrada saltando levemente ao rolar */
+    .reveal{ opacity:0; transform: translateY(10px) scale(.98); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.revealed{ opacity:1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce){
+      .benefit, .testi { animation: none !important; }
+      .reveal{ opacity:1 !important; transform:none !important; }
+      body::before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,#f7971e 0%, #ffd200 100%);z-index:-2;}
     }
-    .destaque {
-      background-color: #e2f0e9;
-      padding: 10px 15px;
-      border-left: 4px solid #2e7052;
-      margin: 15px 0;
-    }
-    .depoimento {
-      font-style: italic;
-      background-color: #f4f4f4;
-      border-left: 4px solid #ccc;
-      padding: 10px;
-      margin: 20px 0;
-    }
+
   </style>
 </head>
 <body>
-  <h1>Vida Longa e Saudável</h1>
-  <h2>Um guia prático para mais energia, equilíbrio e qualidade de vida em qualquer idade</h2>
+<header><div class="brand">Vida Longa e Saudável</div></header>
 
-  <p><strong>Você sente que precisa cuidar melhor da sua saúde, mas não sabe por onde começar?</strong></p>
-  <p>Este e-book foi feito especialmente para quem quer viver com mais leveza, disposição e bem-estar — sem mudanças radicais.</p>
+<div id="dealbar" style="position:sticky;top:48px;z-index:55;background:rgba(31,41,55,.96);color:#fff;padding:10px 16px;text-align:center;font-weight:700;">
+  <span style="margin-right:6px;">🎁 Oferta de lançamento:</span>
+  <span>R$ <span id="promoPrice">29,90</span> <small style="opacity:.9;font-weight:600;">(por tempo limitado)</small></span>
+  <span style="margin-left:10px;">⏳ Termina em <span id="timer" aria-live="polite">15:00</span></span>
+</div>
 
-  <div class="destaque">
-    <strong>O que você vai encontrar:</strong>
-    <ul>
-      <li>Técnicas para reduzir o estresse e a ansiedade</li>
-      <li>Dicas de alimentação saudável e equilibrada</li>
-      <li>Exercícios leves que realmente funcionam</li>
-      <li>Estratégias para prevenir doenças crônicas</li>
-      <li>Como manter a motivação e o autocuidado</li>
-      <li>Plano de 21 dias com orientações simples e eficazes</li>
-    </ul>
-  </div>
+<main class="container">
+  <img src="assets/img/hero.png" alt="Capa do eBook Vida Longa e Saudável" width="1200" height="800" style="width:100%;height:auto;border-radius:12px;margin-top:12px;" loading="lazy"/>
+  <h1>Seu corpo merece cuidado. Sua vida merece saúde.</h1>
+  <p>Um guia simples e completo para ter mais energia, disposição e bem‑estar — criado com carinho para você.</p>
+  <div class="old">De R$ 79,90</div>
+  <div class="price">Por R$ 29,90</div>
+  <a href="https://pay.hotmart.com/S99622063H?utm_source=meta&utm_medium=ads&utm_campaign=vida_longa_ebook" class="cta">Quero meu guia agora</a>
 
-  <div class="depoimento">
-    “Comecei a seguir o plano de 21 dias e já me sinto mais leve, animada e com mais foco. É prático, direto e fácil de seguir.”<br>
-    <strong>-- Dona Maria, 62 anos</strong>
-  </div>
+  <h2>O que você vai encontrar</h2>
+  <div class="benefit reveal"><strong>Receitas fáceis</strong><br/>Práticas e saborosas para o dia a dia.</div>
+  <div class="benefit reveal"><strong>Exercícios simples</strong><br/>Movimentos leves para fazer em casa.</div>
+  <div class="benefit reveal"><strong>Dicas para mais energia</strong><br/>Durma melhor e acorde disposto.</div>
+  <div class="benefit reveal"><strong>Conteúdo sem complicação</strong><br/>Letras grandes e linguagem amigável.</div>
 
-  <h3>🎁 Bônus:</h3>
-  <ul>
-    <li>Edição especial com visual amigável</li>
-    <li>Acesso vitalício ao conteúdo</li>
-    <li>Suporte por e-mail em caso de dúvidas</li>
-  </ul>
+  <h2>Quem já leu aprovou</h2>
+  <div class="testi reveal"><strong>Maria, 63 anos</strong><br/>“As receitas e exercícios são fáceis de seguir. Estou me sentindo mais disposta!”</div>
+  <div class="testi reveal"><strong>José, 70 anos</strong><br/>“Conteúdo claro e direto. Gostei de como o guia fala com a gente sem termos difíceis.”</div>
 
-  <h2>Por apenas R$ 29,90</h2>
-  <p><strong>Aproveite o valor promocional por tempo limitado.</strong></p>
-  <a class="botao" href="https://go.hotmart.com/S99622063H" target="_blank">CLIQUE AQUI PARA COMPRAR AGORA</a>
+  <h2>Perguntas frequentes</h2>
+  <div class="benefit reveal"><strong>Como recebo?</strong><br/>Logo após o pagamento, você recebe um e‑mail com o link do PDF.</div>
+  <div class="benefit reveal"><strong>É fácil de ler?</strong><br/>Sim, com letras grandes e linguagem simples.</div>
+  <div class="benefit reveal"><strong>E se eu não gostar?</strong><br/>Você tem 7 dias para pedir reembolso.</div>
 
-  <p><em>Pagamento 100% seguro. Acesso imediato após a compra.</em></p>
+  <a href="https://pay.hotmart.com/S99622063H?utm_source=meta&utm_medium=ads&utm_campaign=vida_longa_ebook" class="cta">Comprar agora</a>
+</main>
+<footer>© <span id="ano"></span> Vida Longa e Saudável<br/>Suporte: suporte@seudominio.com</footer>
+<script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
 
-  <h3>Garantia de 7 dias</h3>
-  <p>Se não gostar, você pode pedir reembolso completo. Sem perguntas.</p>
+<script>
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  function onScroll(){
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    els.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if(rect.top < h - 60){ el.classList.add('revealed'); }
+    });
+  }
+  onScroll();
+  document.addEventListener('scroll', onScroll, {passive:true});
+})();
+</script>
+
+
+<script>
+(function(){
+  var KEY='dealEndsAt_v1';
+  var DUR=10*60*1000; // 15 minutes
+  var end = localStorage.getItem(KEY);
+  var now = Date.now();
+  if(!end || now > +end){ end = now + DUR; localStorage.setItem(KEY, end); }
+  var tEl = document.getElementById('timer');
+  var ctaEls = [].slice.call(document.querySelectorAll('.cta'));
+  function fmt(ms){
+    var s = Math.max(0, Math.floor(ms/1000));
+    var m = Math.floor(s/60); var r = s%60;
+    return (m<10?'0'+m:m)+':'+(r<10?'0'+r:r);
+  }
+  function tick(){
+    var left = (+end) - Date.now();
+    if(left <= 0){
+      tEl.textContent = '00:00';
+      // Optional: subtle pulse to CTAs when acabando
+      ctaEls.forEach(function(btn){ btn.style.boxShadow='0 0 0 4px rgba(242,153,74,.35)';});
+      return;
+    }
+    tEl.textContent = fmt(left);
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
+
 </body>
 </html>
